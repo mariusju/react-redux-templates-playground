@@ -1,0 +1,13 @@
+<rt-import name="TestComponent" from="./TestComponent"/>
+<div>
+  <header>
+  	<TestComponent />
+    <!-- Links:
+    {' '}
+    <Linkx to='/'>Home</Linkx>  
+    {' '}
+    <Link to='/issues'>Issues</Link>
+    {' '} -->
+  </header>
+  <!-- <div style={{ marginTop: '1.5em' }}>{this.props.children}</div> -->
+</div>
