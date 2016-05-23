@@ -1,17 +1,11 @@
 import React from 'react';
-import Issue from './Issue';
+import template from './IssueList.rt';
 
-export default function IssueList({ issues, onIssueUpVote, onIssueDownVote }) {
-  return (
-    <div>
-      {issues.map(issue =>
-        <Issue
-          key={issue.id}
-          onIssueUpVote={onIssueUpVote}
-          onIssueDownVote={onIssueDownVote}
-          {...issue}
-        />
-      )}
-    </div>
-  );
+class IssueList extends React.Component {
+  render() {
+    return template.call(this);
+  }
 }
+
+module.exports = IssueList;
+

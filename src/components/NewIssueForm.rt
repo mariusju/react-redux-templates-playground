@@ -1,0 +1,8 @@
+<form onSubmit="(e) => this.createIssue(e)">
+  <input
+    type="text"
+    value={this.state.newIssueTitle}
+    onChange="(e) => this.handleTitleChange(e)"
+  />
+  <button>Create</button>
+</form>

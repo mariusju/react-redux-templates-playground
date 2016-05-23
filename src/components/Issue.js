@@ -1,21 +1,20 @@
 import React from 'react';
+import template from './Issue.rt';
 
-export default function Issue({
-	id, title, upVotes, downVotes, onIssueUpVote, onIssueDownVote }){
-	
-	const rating = upVotes - downVotes;
+class Issue extends React.Component {
 
-	return (
-		<div>
-			{title}
-			<button onClick={() => onIssueUpVote(id)}>
-				{upVotes} Up
-			</button>
-			<button onClick={() => onIssueDownVote(id)}>
-				{downVotes} Down
-			</button>
-			<span> {rating} </span>
-		</div>
-	)
+  upVote() {
+    this.props.onIssueUpVote(this.props.issue.id);
+  }
+
+  downVote() {
+    this.props.onIssueDownVote(this.props.issue.id);
+  }
+
+  render() {
+    return template.call(this);
+  }
 }
+
+module.exports = Issue;
 

@@ -1,0 +1,11 @@
+<rt-require dependency="./Issue" as="Issue"/>
+<div>
+  <div>issueList</div>
+    <Issue
+      rt-repeat="issue in this.props.issues"
+      key="{issue.id}"
+      issue="{issue}"
+      onIssueUpVote="{this.props.onIssueUpVote}"
+      onIssueDownVote="{this.props.onIssueDownVote}"
+    />
+</div> 

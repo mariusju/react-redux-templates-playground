@@ -1,0 +1,10 @@
+<div>
+  {this.props.issue.title}
+  <button onClick="() => this.upVote()">
+    {this.props.issue.upVotes} Up
+  </button>
+  <button onClick="() => this.downVote()">
+    {this.props.issue.downVotes} Down
+  </button>
+  <span> {this.props.issue.upVotes - this.props.issue.downVotes} </span>
+</div>
