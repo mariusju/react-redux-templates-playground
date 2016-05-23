@@ -25,15 +25,23 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 
 ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <Router history={history}>
-        <Route path="/" component={App}>
-          <IndexRoute component={Home}/>
-          <Route path="issues" component={IssuePage}/>
-        </Route>
-      </Router>
-    </div>
-  </Provider>,
+  React.createElement(
+    Provider,
+    {store: store},
+    React.createElement(
+      'div',
+      null,
+      React.createElement(
+        Router,
+        {history: history},
+        React.createElement(
+          Route,
+          {path: '/', component: App},
+          React.createElement(IndexRoute, {component: Home}),
+          React.createElement(Route, {path: 'issues', component: IssuePage})
+        )
+      )
+    )
+  ),
   document.getElementById('app')
 );

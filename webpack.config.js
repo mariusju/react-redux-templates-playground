@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.rt/,
         exclude: '/node_modules/',
-        loader: 'react-templates-loader?targetVersion=0.14.0',
+        loader: 'react-templates-loader',
       },
     ],
   },
