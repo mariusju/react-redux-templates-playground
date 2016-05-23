@@ -24,6 +24,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+        'node_modules'
     ],
 
 
@@ -31,7 +32,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         './src/bundle.js': ['webpack'],      
-        'tests/**/*.specs.js': ['webpack']
+        './**/*.specs.js': ['webpack']
     },
 
 

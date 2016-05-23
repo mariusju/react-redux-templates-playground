@@ -1,12 +1,10 @@
 import React from 'react';
 import template from './NewIssueForm.rt';
 
-export default class NewIssueForm extends React.Component {
+class NewIssueForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {newIssueTitle: ''};
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.createIssue = this.createIssue.bind(this);
   }
 
   handleTitleChange(e) {
@@ -23,3 +21,5 @@ export default class NewIssueForm extends React.Component {
     return template.call(this);
   }
 }
+
+module.exports = NewIssueForm;

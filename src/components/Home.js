@@ -1,9 +1,11 @@
 import React from 'react';
 import template from './home.rt';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   render() {
     return template();
   }
 }
+
+module.exports = Home;
 

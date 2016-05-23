@@ -1,0 +1,10 @@
+<rt-require dependency="./IssueList" as="IssueList"/>
+<rt-require dependency="./NewIssueForm" as="NewIssueForm"/>
+<div>
+  <IssueList
+    issues="{this.props.issues}"
+    onIssueDownVote="(id) => this.props.onIssueDownVote(id)"
+    onIssueUpVote="(id) => this.props.onIssueUpVote(id)"    
+  />
+  <NewIssueForm onIssueCreate="(title) => this.props.onIssueCreate(title)" />
+</div>
