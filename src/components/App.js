@@ -4,8 +4,6 @@ import template from './App.rt';
 
 
 
-//console.log(template());
-
 // export default function App({children}){
 //   return (
 //     <div>
@@ -27,9 +25,6 @@ import template from './App.rt';
 
 export default class App extends React.Component {
   render() {
-    var x = template.call(this);
-    // console.log(x);
-    return x;
-
+    return template.apply(this);
   }
 }

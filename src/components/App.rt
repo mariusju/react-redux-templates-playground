@@ -1,13 +1,11 @@
-<rt-import name="TestComponent" from="./TestComponent"/>
+<rt-import name="default" as="TestComponent" from="./TestComponent" />
+<rt-require dependency="./../../node_modules/react-router/lib/Link" as="Link"/>
+
 <div>
   <header>
   	<TestComponent />
-    <!-- Links:
-    {' '}
-    <Linkx to='/'>Home</Linkx>  
-    {' '}
+    <Link to='/'>Home</Link>{' '}
     <Link to='/issues'>Issues</Link>
-    {' '} -->
   </header>
-  <!-- <div style={{ marginTop: '1.5em' }}>{this.props.children}</div> -->
+  <div style={{ marginTop: '1.5em' }}>{this.props.children}</div>
 </div>

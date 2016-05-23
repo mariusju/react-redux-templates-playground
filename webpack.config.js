@@ -9,16 +9,18 @@ module.exports = {
     contentBase: './src',
     port: 3333,
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: '/node_modules/',
         loader: 'babel',
       },
       {
         test: /\.rt/,
-        loader: 'react-templates-loader',
+        exclude: '/node_modules/',
+        loader: 'react-templates-loader?targetVersion=0.14.0',
       },
     ],
   },
