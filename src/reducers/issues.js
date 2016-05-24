@@ -38,7 +38,7 @@ export default function update(state, action) {
   state = state || initialState; //somehow default params does not work in tests
 
   switch (action.type) {
-    case actionTypes.UPVOTE:
+    case actionTypes.UPVOTE_ISSUE_SUCCESS:
       return upvoteIssue(state, action.issueId);
 
     case actionTypes.DOWNVOTE:
