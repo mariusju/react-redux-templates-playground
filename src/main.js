@@ -5,9 +5,8 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore, routerReducer} from 'react-router-redux';
-import ReduxThunk from 'redux-thunk';
-
-
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 import * as reducers from './reducers';
 import {App, Home, IssuePage} from './components';
 
@@ -16,9 +15,11 @@ const reducer = combineReducers({
   routing: routerReducer
 });
 
+const logger = createLogger({collapsed: true});
+
 const store = createStore(
   reducer,
-  applyMiddleware(ReduxThunk)
+  applyMiddleware(thunk, logger)
 );
 
 const history = syncHistoryWithStore(browserHistory, store);

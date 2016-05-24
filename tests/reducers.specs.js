@@ -1,6 +1,26 @@
 import * as reducers from './../src/reducers';
 import * as actions from './../src/actions';
 
+describe('requestsReducer', () => {
+
+
+  it('should increase the pending request count when REQUEST action is dispatched', () => {
+    const initialState = 0;
+    const action = actions.upvoteIssueRequest(1);
+    const actual = reducers.requests(initialState, action);
+    const expected = 1;
+    expect(actual).toEqual(expected);
+  });
+
+  it('should decrease the pending request count when SUCCESS action is dispatched', () => {
+    const initialState = 1;
+    const action = actions.upvoteIssueSuccess(1);
+    const actual = reducers.requests(initialState, action);
+    const expected = 0;
+    expect(actual).toEqual(expected);
+  });
+
+});
 
 describe('issuesReducer', () => {
 

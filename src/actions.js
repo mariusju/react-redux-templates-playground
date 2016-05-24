@@ -22,11 +22,11 @@ const imitateNewIssueAJAX = title => new Promise(resolve =>
     id: Math.floor(Math.random() * 1000),
     upVotes: 0,
     downVotes: 0
-  }))
+  }), Math.random() * 1000)
 );
 
 const fakeAJAX = data => new Promise(resolve =>
-  setTimeout(() => resolve(data), 100)
+  setTimeout(() => resolve(data), Math.random() * 1000)
 );
 
 export const upvoteIssueAsync = issueId =>

@@ -1,1 +1,2 @@
-export issues from './issues'
+export issues from './issues';
+export requests from './requests';

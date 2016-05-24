@@ -1,0 +1,1 @@
+<div rt-if="this.props.loading">Loading</div>

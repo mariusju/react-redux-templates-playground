@@ -1,5 +1,5 @@
 import {findIndex, adjust} from 'ramda';
-import initialState from './initialState';
+import initialState from './issues.initial-state';
 import * as actionTypes from './../actionTypes';
 
 const upvote = issue => {
@@ -7,11 +7,13 @@ const upvote = issue => {
   return issue;
 };
 
+//helper function
 const downvote = issue => {
   issue.downVotes++;
   return issue;
 };
 
+//helper function
 const upvoteIssue = (state, issueId) => {
   const index = findIndex(i => i.id === issueId, state);
   return adjust(upvote, index, state);

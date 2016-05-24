@@ -14,6 +14,7 @@ class IssuePage extends React.Component {
 module.exports = connect(
   state => ({
     issues: sortBy(x => x.downVotes - x.upVotes, state.issues),
+    loading: state.requests > 0,
   }),
   dispatch => ({
     onIssueUpVote: issueId => dispatch(actions.upvoteIssueAsync(issueId)),
