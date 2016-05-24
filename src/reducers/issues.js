@@ -22,30 +22,20 @@ const downvoteIssue = (state, issueId) => {
   return adjust(downvote, index, state);
 };
 
-const createNewIssue = (state, title) => {
-  return [
-    ...state,
-    {
-      id: Math.floor(Math.random() * 1000),
-      title: title,
-      upVotes: 0,
-      downVotes: 0,
-    }
-  ];
-};
+const createNewIssue = (state, newIssue) => [...state, newIssue];
 
 export default function update(state, action) {
-  state = state || initialState; //somehow default params does not work in tests
+  state = state || initialState; //karma does not assign default params - needs reconfiguring
 
   switch (action.type) {
     case actionTypes.UPVOTE_ISSUE_SUCCESS:
       return upvoteIssue(state, action.issueId);
 
-    case actionTypes.DOWNVOTE:
+    case actionTypes.DOWNVOTE_ISSUE_SUCCESS:
       return downvoteIssue(state, action.issueId);
 
-    case actionTypes.CREATE_NEW_ISSUE:
-      return createNewIssue(state, action.title);
+    case actionTypes.CREATE_NEW_ISSUE_SUCCESS:
+      return createNewIssue(state, action.body);
 
     default:
       return state;

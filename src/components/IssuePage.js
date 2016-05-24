@@ -16,9 +16,9 @@ module.exports = connect(
     issues: sortBy(x => x.downVotes - x.upVotes, state.issues),
   }),
   dispatch => ({
-    onIssueUpVote: issueId => dispatch(actions.upvoteIssueDelayed(issueId)),
-    onIssueDownVote: issueId => dispatch(actions.downvoteIssue(issueId)),
-    onIssueCreate: title => dispatch(actions.createNewIssue(title)),
+    onIssueUpVote: issueId => dispatch(actions.upvoteIssueAsync(issueId)),
+    onIssueDownVote: issueId => dispatch(actions.downvoteIssueAsync(issueId)),
+    onIssueCreate: title => dispatch(actions.createNewIssueAsync(title)),
   })
 )(IssuePage);
 
