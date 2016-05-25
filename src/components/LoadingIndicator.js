@@ -3,9 +3,12 @@ import template from './LoadingIndicator.rt';
 
 class LoadingIndicator extends React.Component {
   render() {
-    console.log('this', this);
     return template.call(this);
   }
 }
+
+LoadingIndicator.propTypes = {
+  loading: React.PropTypes.bool.isRequired
+};
 
 module.exports = LoadingIndicator;

@@ -1,8 +1,8 @@
 import * as reducers from './../src/reducers';
 import * as actions from './../src/actions';
+import {last} from 'ramda';
 
 describe('requestsReducer', () => {
-
 
   it('should increase the pending request count when REQUEST action is dispatched', () => {
     const initialState = 0;
@@ -30,6 +30,14 @@ describe('issuesReducer', () => {
       title: 'first issue',
       upVotes: 3,
       downVotes: 1,
+      comments: [
+        {
+          id: 31,
+          issueId: 1,
+          author: 'Marius',
+          text: 'First comment'
+        }
+      ]
     },
     {
       id: '2',
@@ -77,6 +85,24 @@ describe('issuesReducer', () => {
       const actual = reducers.issues(initialState, action);
       expect(actual[actual.length - 1]).toBe(newIssue);
     });
+  });
+
+  describe('createNewComment', () => {
+    it('should add a comment to an issue', () => {
+      const newComment = {
+        id: 98,
+        issueId: initialState[0].id,
+        author: 'Marius',
+        text: 'this is comment',
+      };
+      const action = actions.createNewCommentSuccess(newComment);
+      const actual = reducers.issues(initialState, action);
+
+      expect(actual[0].comments.length).toEqual(initialState[0].comments.length + 1);
+      expect(jasmine.objectContaining(last(actual[0].comments)))
+        .toEqual(newComment);
+    });
+
   });
 
 });

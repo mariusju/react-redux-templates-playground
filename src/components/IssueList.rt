@@ -7,5 +7,6 @@
       issue="{issue}"
       onIssueUpVote="{this.props.onIssueUpVote}"
       onIssueDownVote="{this.props.onIssueDownVote}"
+      onCommentCreate="{this.props.onCommentCreate}"
     />
 </div> 

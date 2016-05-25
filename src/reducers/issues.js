@@ -1,4 +1,4 @@
-import {findIndex, adjust} from 'ramda';
+import {findIndex, adjust, clone} from 'ramda';
 import initialState from './issues.initial-state';
 import * as actionTypes from './../actionTypes';
 
@@ -26,6 +26,16 @@ const downvoteIssue = (state, issueId) => {
 
 const createNewIssue = (state, newIssue) => [...state, newIssue];
 
+const createNewComment = (state, {id, issueId, author, text}) => {
+  let clonedState = clone(state);
+  clonedState.forEach(issue => {
+    if (issue.id === issueId) {
+      issue.comments.push({id, author, text});
+    }
+  });
+  return clonedState;
+};
+
 export default function update(state, action) {
   state = state || initialState; //karma does not assign default params - needs reconfiguring
 
@@ -38,6 +48,9 @@ export default function update(state, action) {
 
     case actionTypes.CREATE_NEW_ISSUE_SUCCESS:
       return createNewIssue(state, action.body);
+
+    case actionTypes.CREATE_NEW_COMMENT_SUCCESS:
+      return createNewComment(state, action);
 
     default:
       return state;

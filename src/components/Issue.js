@@ -3,6 +3,19 @@ import template from './Issue.rt';
 
 class Issue extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      commentsVisible: false
+    };
+  }
+
+  toggleComments() {
+    this.setState({
+      commentsVisible: !this.state.commentsVisible
+    });
+  }
+
   upVote() {
     this.props.onIssueUpVote(this.props.issue.id);
   }
@@ -16,5 +29,13 @@ class Issue extends React.Component {
   }
 }
 
+Issue.propTypes = {
+  issue: React.PropTypes.object.isRequired,
+  onIssueUpVote: React.PropTypes.func.isRequired,
+  onIssueDownVote: React.PropTypes.func.isRequired,
+  onCommentCreate: React.PropTypes.func.isRequired,
+};
+
 module.exports = Issue;
+
 

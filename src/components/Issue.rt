@@ -1,3 +1,4 @@
+<rt-require dependency="./CommentsBlock" as="CommentsBlock"/>
 <div>
   {this.props.issue.title}
   <button onClick="() => this.upVote()">
@@ -6,5 +7,13 @@
   <button onClick="() => this.downVote()">
     {this.props.issue.downVotes} Down
   </button>
-  <span> {this.props.issue.upVotes - this.props.issue.downVotes} </span>
+  <span>Rating: {this.props.issue.upVotes - this.props.issue.downVotes}, </span>
+  <a onClick="() => this.toggleComments()">Comments</a>
+  <div rt-if="this.state.commentsVisible">
+    <CommentsBlock
+      comments="{this.props.issue.comments}"
+      onCommentCreate="{this.props.onCommentCreate}"
+      issueId="{this.props.issue.id}"
+    />
+  </div>
 </div>

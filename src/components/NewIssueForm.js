@@ -22,4 +22,8 @@ class NewIssueForm extends React.Component {
   }
 }
 
+NewIssueForm.propTypes = {
+  onIssueCreate: React.PropTypes.func.isRequired,
+};
+
 module.exports = NewIssueForm;

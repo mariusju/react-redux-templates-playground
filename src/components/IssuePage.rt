@@ -4,9 +4,11 @@
 <div>
   <IssueList
     issues="{this.props.issues}"
-    onIssueDownVote="(id) => this.props.onIssueDownVote(id)"
-    onIssueUpVote="(id) => this.props.onIssueUpVote(id)"    
+    onIssueDownVote="{this.props.onIssueDownVote}"
+    onIssueUpVote="{this.props.onIssueUpVote}"
+    onCommentCreate="{this.props.onCommentCreate}"    
   />
-  <NewIssueForm onIssueCreate="(title) => this.props.onIssueCreate(title)" />
+  <hr />
+  <NewIssueForm onIssueCreate="{this.props.onIssueCreate}" />
   <LoadingIndicator loading="{this.props.loading}" />
 </div>

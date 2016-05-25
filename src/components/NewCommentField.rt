@@ -1,0 +1,26 @@
+<div>
+  <a
+    onClick="() => this.showCommentForm()"
+    rt-if="!this.state.isCommentFormVisible"
+  >Write new comment</a>
+  <div rt-if="this.state.isCommentFormVisible">
+    <form onSubmit="(e) => this.submitComment(e)">
+      <input
+        type="text" 
+        name="author"
+        placeholder="author"
+        onChange="(e) => this.handleAuthorChange(e)"
+        />
+
+      <input
+        type="text"
+        name="comment"
+        placeholder="Comment text"
+        onChange="(e) => this.handleCommentChange(e)"
+      />
+      <button>
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

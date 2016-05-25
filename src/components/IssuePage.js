@@ -20,6 +20,7 @@ module.exports = connect(
     onIssueUpVote: issueId => dispatch(actions.upvoteIssueAsync(issueId)),
     onIssueDownVote: issueId => dispatch(actions.downvoteIssueAsync(issueId)),
     onIssueCreate: title => dispatch(actions.createNewIssueAsync(title)),
+    onCommentCreate: options => dispatch(actions.createNewCommentAsync(options))
   })
 )(IssuePage);
 

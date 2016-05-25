@@ -1,6 +1,8 @@
 import * as actionTypes from './actionTypes';
 import Promise from 'bluebird';
 
+const generateRandomId = () => Math.floor(Math.random() * 1000);
+
 export const upvoteIssueRequest = () => ({
   type: actionTypes.UPVOTE_ISSUE_REQUEST,
 });
@@ -19,7 +21,7 @@ export const upvoteIssueFailure = ex => ({
 const imitateNewIssueAJAX = title => new Promise(resolve =>
   setTimeout(() => resolve({
     title,
-    id: Math.floor(Math.random() * 1000),
+    id: generateRandomId(),
     upVotes: 0,
     downVotes: 0
   }), Math.random() * 1000)
@@ -82,3 +84,34 @@ export const createNewIssueAsync = title =>
       .catch(err => dispatch(createNewIssueFailure(err.code)));
   };
 
+export const imitateNewCommentAJAX = options =>
+  new Promise(resolve =>
+    setTimeout(() => resolve({
+      id: generateRandomId(),
+      ...options
+    }), Math.random() * 1000)
+  );
+
+export const createNewCommentSuccess = data => ({
+  type: actionTypes.CREATE_NEW_COMMENT_SUCCESS,
+  ...data
+});
+
+
+export const createNewCommentRequest = options => ({
+  type: actionTypes.CREATE_NEW_COMMENT_REQUEST,
+  ...options
+});
+
+export const createNewCommentFailure = errorMessage => ({
+  type: actionTypes.CREATE_NEW_COMMENT_FAILURE,
+  errorMessage
+});
+
+export const createNewCommentAsync = options =>
+  dispatch => {
+    dispatch(createNewCommentRequest(options));  //TODO: make generic request creator
+    return imitateNewCommentAJAX(options)
+      .then(res => dispatch(createNewCommentSuccess(res)))
+      .catch(err => dispatch(createNewCommentFailure(err.code)));
+  };

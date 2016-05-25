@@ -1,11 +1,11 @@
-import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import * as actionTypes from './../src/actionTypes';
 import * as actions from './../src/actions';
 import configureStore from 'redux-mock-store';
 
 describe('asyncActionCreators', () => {
 
-  const middlewares = [ReduxThunk];
+  const middlewares = [thunk];
   const mockStore = configureStore(middlewares);
   const initialState = {};
   let store;
@@ -67,6 +67,19 @@ describe('asyncActionCreators', () => {
 
           expect(actualActions[actualActions.length - 1].body)
             .toEqual(jasmine.objectContaining(newIssueBody));
+        })
+        .then(done);
+    });
+  });
+
+  describe('createNewCommentAsync', () => {
+    it('should dispatch REQUEST and SUCCESS actions', done => {
+      store.dispatch(actions.createNewCommentAsync({author: 'John', text: 'Hello world!'}))
+        .then(() => {
+          const actualActions = store.getActions();
+
+          expect(actualActions.map(x => x.type))
+            .toEqual(['CREATE_NEW_COMMENT_REQUEST', 'CREATE_NEW_COMMENT_SUCCESS']);
         })
         .then(done);
     });

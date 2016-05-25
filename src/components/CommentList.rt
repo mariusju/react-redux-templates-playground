@@ -1,0 +1,5 @@
+<div>
+  <div rt-repeat="comment in this.props.comments" key="{comment.id}">
+    {comment.author}: {comment.text}
+  </div>
+</div>

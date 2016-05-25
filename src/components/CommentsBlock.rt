@@ -1,0 +1,10 @@
+<rt-require dependency="./CommentList" as="CommentList"/>
+<rt-require dependency="./NewCommentField" as="NewCommentField"/>
+
+<div>
+  <CommentList comments="{this.props.comments}" />
+  <NewCommentField
+    onCommentCreate="{this.props.onCommentCreate}"
+    issueId="{this.props.issueId}"
+  />
+</div>
