@@ -1,14 +1,13 @@
 <rt-require dependency="./IssueList" as="IssueList"/>
 <rt-require dependency="./NewIssueForm" as="NewIssueForm"/>
 <rt-require dependency="./LoadingIndicator" as="LoadingIndicator"/>
-<div>
+<div className="container">
   <IssueList
     issues="{this.props.issues}"
     onIssueDownVote="{this.props.onIssueDownVote}"
     onIssueUpVote="{this.props.onIssueUpVote}"
     onCommentCreate="{this.props.onCommentCreate}"    
   />
-  <hr />
   <NewIssueForm onIssueCreate="{this.props.onIssueCreate}" />
   <LoadingIndicator loading="{this.props.loading}" />
 </div>

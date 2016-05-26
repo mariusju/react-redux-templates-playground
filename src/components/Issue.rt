@@ -1,19 +1,28 @@
 <rt-require dependency="./CommentsBlock" as="CommentsBlock"/>
-<div>
-  {this.props.issue.title}
-  <button onClick="() => this.upVote()">
-    {this.props.issue.upVotes} Up
-  </button>
-  <button onClick="() => this.downVote()">
-    {this.props.issue.downVotes} Down
-  </button>
-  <span>Rating: {this.props.issue.upVotes - this.props.issue.downVotes}, </span>
-  <a onClick="() => this.toggleComments()">Comments</a>
-  <div rt-if="this.state.commentsVisible">
+<li class="list-group-item">
+  <div className="h4">{this.props.issue.title}</div>
+  
+  <div class="btn-group" role="group">
+    <button onClick="() => this.upVote()" className="btn btn-sm btn-primary-outline">
+      Up <small class="text-muted">({this.props.issue.upVotes})</small>
+    </button>
+    <button onClick="() => this.downVote()"" className="btn btn-sm btn-primary-outline">
+      Down <small class="text-muted">({this.props.issue.downVotes})</small>
+    </button>
+  </div>
+
+  <div style="margin-left: 5px; display: inline-block">
+    <a onClick="() => this.toggleComments()" style="cursor: pointer;">
+      Show comments <span className="text-muted">({this.props.issue.comments.length})</span>
+    </a>
+  </div>
+
+
+  <div rt-if="this.state.commentsVisible" style="margin-top: 10px;">
     <CommentsBlock
       comments="{this.props.issue.comments}"
       onCommentCreate="{this.props.onCommentCreate}"
       issueId="{this.props.issue.id}"
     />
   </div>
-</div>
+</li>

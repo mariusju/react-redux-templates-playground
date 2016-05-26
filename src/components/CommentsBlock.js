@@ -3,7 +3,6 @@ import template from './CommentsBlock.rt';
 
 class CommentsBlock extends React.Component {
   render() {
-    React.
     return template.call(this);
   }
 }

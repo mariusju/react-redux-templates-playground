@@ -1,9 +1,14 @@
 <rt-require dependency="./../../node_modules/react-router/lib/Link" as="Link"/>
-
 <div>
-  <header>
-    <Link to='/'>Home</Link>{' '}
-    <Link to='/issues'>Issues</Link>
-  </header>
-  <div style={{ marginTop: '1.5em' }}>{this.props.children}</div>
+  <nav class="navbar navbar-dark bg-inverse">
+    <Link to="/" className="navbar-brand">Issues Project</Link>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <Link class="nav-link" to='/issues'>Issues</Link>
+      </li>
+    </ul>
+  </nav>
+
+  {this.props.children}
+
 </div>

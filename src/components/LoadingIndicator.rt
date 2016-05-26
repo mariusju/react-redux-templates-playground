@@ -1,1 +1,6 @@
-<div rt-if="this.props.loading">Loading</div>
+<div
+  rt-if="this.props.loading"
+  style="position: fixed; left: 45%; top: 10px; z-index: 1; color: white;"
+>
+  Loading
+</div>

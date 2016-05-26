@@ -1,6 +1,7 @@
 <rt-require dependency="./Issue" as="Issue"/>
 <div>
-  <div>issueList</div>
+  <h1>List of issues</h1>
+  <ul class="list-group">
     <Issue
       rt-repeat="issue in this.props.issues"
       key="{issue.id}"
@@ -9,4 +10,5 @@
       onIssueDownVote="{this.props.onIssueDownVote}"
       onCommentCreate="{this.props.onCommentCreate}"
     />
+  </ul>
 </div> 

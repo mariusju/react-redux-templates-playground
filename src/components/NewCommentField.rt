@@ -1,26 +1,36 @@
 <div>
   <a
+    style="cursor: pointer"
     onClick="() => this.showCommentForm()"
     rt-if="!this.state.isCommentFormVisible"
   >Write new comment</a>
   <div rt-if="this.state.isCommentFormVisible">
-    <form onSubmit="(e) => this.submitComment(e)">
-      <input
-        type="text" 
-        name="author"
-        placeholder="author"
-        onChange="(e) => this.handleAuthorChange(e)"
-        />
-
-      <input
+    <form
+      onSubmit="(e) => this.submitComment(e)"
+      className="form-inline"
+    >
+      <textarea
+        style="width: 100%; margin: 5px 0px;"
+        className="form-control"
         type="text"
         name="comment"
         placeholder="Comment text"
         onChange="(e) => this.handleCommentChange(e)"
-      />
-      <button>
-        Submit
-      </button>
+      ></textarea>
+        <input
+          className="form-control"
+          type="text" 
+          name="author"
+          placeholder="author"
+          onChange="(e) => this.handleAuthorChange(e)"
+          />
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
     </form>
   </div>
 </div>
