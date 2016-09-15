@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --history-api-fallback --no-info --open",
     "test": "./node_modules/karma/bin/karma start"
   },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
